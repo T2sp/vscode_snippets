@@ -1,181 +1,885 @@
 {
-  "workbench.sideBar.location": "right",
-  "[html]": {
-      "editor.defaultFormatter": "HookyQR.beautify"
-  },
-  "emmet.excludeLanguages": [
-      "markdown"
-  ],
-  "emmet.variables": {
-      "lang": "ja"
-  },
-  "[javascript]": {
-      "editor.defaultFormatter": "HookyQR.beautify"
-  },
-  // ---------- Language ----------
-  "[tex]": {
-      // スニペット補完中にも補完を使えるようにする
-      "editor.suggest.snippetsPreventQuickSuggestions": false,
-      // インデント幅を4にする
-      "editor.tabSize": 4
-  },
-  "[latex]": {
-  
-      // スニペット補完中にも補完を使えるようにする
-      "editor.suggest.snippetsPreventQuickSuggestions": false,
-      // インデント幅を4にする
-      "editor.tabSize": 4
-  },
-  "[bibtex]": {
-      // インデント幅を4にする
-      "editor.tabSize": 4
-  },
-  // ---------- LaTeX Workshop ----------
-  // 使用パッケージのコマンドや環境の補完を有効にする
-  "latex-workshop.intellisense.package.enabled": true,
-  // 生成ファイルを削除するときに対象とするファイル
-  "latex-workshop.latex.clean.fileTypes": [
-      "*.acn",
-      "*.acr",
-      "*.alg",
-      "*.aux",
-      "*.bbl",
-      // "*.blg",
-      "*.dvi",
-      "*.fdb_latexmk",
-      "*.fls",
-      "*.glg",
-      "*.glo",
-      "*.gls",
-      "*.idx",
-      "*.ind",
-      "*.ist",
-      "*.lof",
-      "*.lot",
-      "*.nav",
-      "*.out",
-      "*.snm",
-      "*.synctex.gz",
-      "*.synctex.gz(busy)",
-      "*.synctex(busy)",
-      "*.toc",
-      "*.vrb",
-      "*_minted*",
-      // "__latexindent_temp.tex"
-  ],
-  // 生成ファイル削除
-  "latex-workshop.latex.clean.method": "glob",
-  // ビルド時に生成ファイルを自動的に削除
-  "latex-workshop.latex.autoClean.run": "onBuilt",
-  // 生成ファイルを "out" ディレクトリに吐き出す
-  "latex-workshop.latex.outDir": "out",
-  // ビルドのレシピ
-  "latex-workshop.latex.recipes": [
-      {
-          "name": "latexmk",
-          "tools": [
-              "latexmk"
-          ]
-      },
-  ],
-  // ビルドのレシピに使われるパーツ
-  "latex-workshop.latex.tools": [
+    // Place your snippets for latex here. Each snippet is defined under a snippet name and has a prefix, body and 
+    // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+    // same ids are connected.
+    // Example:
+    // "Print to console": {
+    // 	"prefix": "log",
+    // 	"body": [
+    // 		"console.log('$1');",
+    // 		"$2"
+    // 	],
+    // 	"description": "Log output to console"
+    // }
+    "report": {
+      "prefix": "report",
+      "body": [
+        "\\documentclass{ltjsarticle}",
+        "",
+        "%%%%%%%%%%packages%%%%%%%%%%",
+        "%% colors and links",
+        "\\usepackage[svgnames]{xcolor}",
+        "\\usepackage[colorlinks,citecolor=DarkGreen,linkcolor=DeepPink,linktocpage,unicode]{hyperref} ",
+        "",
+        "%% equations",
+        "%%%% math",
+        "\\usepackage{amsmath,amsfonts,amssymb,amsthm}",
+        "\\usepackage{mathtools}",
+        "\\usepackage{mathrsfs}",
+        "\\usepackage{bm}",
+        "\\usepackage{cancel}",
+        "\\usepackage{dsfont}",
+        "%%%% physics",
+        "\\usepackage{siunitx}",
+        "\\usepackage{physics}",
+        "%%%% chemistry",
+        "\\usepackage[version=3]{mhchem}",
+        "",
+        "%% positioning",
+        "\\usepackage{array}",
+        "\\usepackage{float}",
+        "",
+        "%% table",
+        "\\usepackage{booktabs}",
+        "\\usepackage{multirow}",
+        "\\usepackage{hhline}",
+        "\\usepackage{caption}",
+        "\\captionsetup{format=hang}",
+        "\\usepackage{subcaption}",
+        "",
+        "%% figure",
+        "\\usepackage{graphicx}",
+        "\\usepackage{tikz}",
+        "\\usetikzlibrary{intersections,calc,patterns,through,positioning,arrows,backgrounds,cd,tqft,braids}",
+        "\\usepackage{tikz-feynman}",
+        "\\usepackage{pgfplots}",
+        "\\usepgfplotslibrary{patchplots}",
+        "\\pgfplotsset{compat=1.15}",
+        "",
+        "%% decorations",
+        "\\usepackage{titlesec}",
+        "\\usepackage{picture}",
+        "",
+        "%% framing",
+        "\\usepackage{fancybox}",
+        "\\usepackage{boites}",
+        "\\usepackage{tcolorbox}",
+        "\\tcbuselibrary{skins,theorems,breakable}",
+        "",
+        "%% citation",
+        "\\usepackage{cite}",
+        "",
+        "%% miscellaneous",
+        "%%%% comment",
+        "\\usepackage{comment}",
+        "%%%% Japanese",
+        "\\usepackage{ascmac}",
+        "\\usepackage{listings} %日本語のコメントアウトをする場合jlisting（もしくはjvlisting）が必要",
+        "\\lstset{",
+        "    basicstyle={\\ttfamily},",
+        "    identifierstyle={\\small},",
+        "    commentstyle={\\smallitshape},",
+        "    keywordstyle={\\small\\bfseries},",
+        "    ndkeywordstyle={\\small},",
+        "    stringstyle={\\small\ttfamily},",
+        "    frame={tb},",
+        "    breaklines=true,",
+        "    columns=[l]{fullflexible},",
+        "    numbers=left,",
+        "    xrightmargin=0pt,",
+        "    xleftmargin=27pt,",
+        "    numberstyle={\\scriptsize},",
+        "    stepnumber=1,",
+        "    lineskip=-0.5ex",
+        "}",
+        "",
+        "%%macros",
+        "\\usepackage{mylogics}",
+        "\\usepackage{myalgebra}",
+        "\\usepackage{mygeometry}",
+        "\\usepackage{myQM}",
+        "",
+        "%%%%%%%%%%optional settings%%%%%%%%%%",
+        "",
+        "%%%%%図表並列%%%%%",
+        "\\makeatletter",
+        "\\newcommand{\\figcaption}[1]{\\def\\@captype{figure}\\caption{#1}}",
+        "\\newcommand{\\tblcaption}[1]{\\def\\@captype{table}\\caption{#1}}",
+        "\\makeatother",
+        "",
+        "%%%%%itemization%%%%%",
+        "\\renewcommand{\\labelenumi}{\\theenumi}",
+        "\\renewcommand{\\theenumi}{(\\arabic{enumi})} % 箇条書きをローマ数字に",
+        "",
+        "%%%%%%theorem environments%%%%%",
+        "\\newtheoremstyle{mystyle}%   % スタイル名",
+        "    {}%                      % 上部スペース",
+        "    {}%                      % 下部スペース",
+        "    {\\normalfont}%          % 本文フォント",
+        "    {}%                      % インデント量",
+        "    {\\bf}%                  % 見出しフォント",
+        "    {.}%                      % 見出し後の句読点",
+        "    {\\newline}%                     % 見出し後のスペース",
+        "    {\\underline{\\thmname{#1}\\thmnumber{#2}\\thmnote{（#3）}}}%",
+        "    % 見出しの書式 (can be left empty, meaning `normal')",
+        "\\theoremstyle{mystyle} % スタイルの適用",
+        "",
+        "\\newtheorem{theorem}{定理}[section]",
+        "\\newtheorem{definition}{定義}[section]",
+        "\\newtheorem{proposition}[definition]{命題}",
+        "\\newtheorem{corollary}[theorem]{系}",
+        "\\renewcommand{\\proofname}{証明}",
+        "",
+        "%proof",
+        "\\makeatletter % use at mark",
+        "\\renewcommand{\\qedsymbol}{$\\blacksquare$}",
+        "\\renewenvironment{proof}[1][\\proofname]{\\par",
+        "    \\pushQED{\\qed}%",
+        "    \\normalfont \\topsep6\\p@\\@plus6\\p@\\relax",
+        "    \\trivlist",
+        "    \\item[\\hskip\\labelsep",
+        "        \\itshape",
+        "    \\textbf{\\underline{#1}}]\\ignorespaces",
+        "    % {\\bf\\underline{#1}\\@addpunct{.}}]\\ignorespaces % ピリオドあり",
+        "}{%",
+        "    \\popQED\\endtrivlist\\@endpefalse",
+        "}",
+        "\\makeatother % end at mark",
+        "",
+        "%%%%%%mathtools%%%%%",
+        "\\mathtoolsset{showonlyrefs=true} % 被参照数式のみ数式番号割り振り",
+        "\\numberwithin{equation}{section}",
+        "",
+        "\\makeatletter",
+        "\\@addtoreset{equation}{section}",
+        "\\makeatother",
+        "",
+        "%%%%%%framing%%%%%",
+        "",
+        "%%%%%title decorations%%%%%",
+        "",
+        "%% section",
+        "% \\titleformat{\\section}[block]",
+        "% {}{}{0pt}",
+        "% {",
+        "%     \\colorbox{teal}{\\begin{picture}(0,20)\\end{picture}}",
+        "%     \\hspace{0pt}",
+        "%     \\normalfont \\Huge\\bfseries \\thesection",
+        "%     \\hspace{0.5em}",
+        "% }",
+        "% [",
+        "% \\begin{picture}(100,0)",
+        "%     \\put(3,30){\\color{teal}\\line(1,0){400}}",
+        "% \\end{picture}",
+        "% \\\\",
+        "% \\vspace{-50pt}",
+        "% ]",
+        "",
+        "% % subsection",
+        "% \\titleformat{\\subsection}[block]",
+        "% {}{}{0pt}",
+        "% {",
+        "%     \\colorbox{blue}{\\begin{picture}(0,10)\\end{picture}}",
+        "%     \\hspace{0pt}",
+        "%     \\normalfont \\Large\\bfseries \\thesubsection",
+        "%     \\hspace{0.5em}",
+        "% }",
+        "% [",
+        "% \\begin{picture}(100,0)",
+        "%     \\put(3,18){\\color{blue}\\line(1,0){300}}",
+        "% \\end{picture}",
+        "% \\\\",
+        "% \\vspace{-30pt}",
+        "% ]",
+        "",
+        "% % subsubsection",
+        "% \\titleformat{\\subsubsection}[block]",
+        "% {}{}{0pt}",
+        "% {",
+        "%     \\normalfont \\large\\bfseries \\thesubsubsection",
+        "%     \\hspace{0.5em}",
+        "% }",
+        "% [",
+        "% \\begin{picture}(100,0)",
+        "%     \\put(3,15){\\color{black}\\line(1,0){200}}",
+        "% \\end{picture}",
+        "% \\\\",
+        "% \\vspace{-25pt}",
+        "% ]",
+        "\\mathchardef\\mhyphen=\"2D",
+        "",
+        "\\begin{document}",
+        "",
+        "\\title{${1}}",
+        "\\author{${2}}",
+        "\\date{${3}}",
+        "\\maketitle",
+        "",
+        "${0}",
+        "",
+        "\\end{document}"
+      ],
+      "description": ""
+    },
 
-      {
-          "name": "latexmk",
-          "command": "latexmk",
-          "args": [
-              "-synctex=1",
-              "-interaction=nonstopmode",
-              "-file-line-error",
-              "-outdir=%OUTDIR%",
-              "%DOC%"
-          ],
+    "subfile": {
+      "prefix": "subfile",
+      "body": [
+        "\\documentclass[${1}]{subfiles}",
+        "",
+        "\\begin{document}",
+        "",
+        "\\setcounter{${2}}{${3}}",
+        "",
+        "${0}",
+        "",
+        "\\end{document}"
+      ],
+      "description": ""
+    },
+
+    "problems": {
+      "prefix": "problems",
+      "body": [
+        "\\begin{myproblem}[label=prob:${1}]{}",
+        "    ${2}",
+        "\\end{myproblem}",
+        "${0}"
+      ],
+      "description": ""
+    },
+
+    "Insert Figure": {
+        "prefix": "figure",
+        "body": [
+            "\\begin{figure}[H]",
+            "    \\centering",
+            "    \\includegraphics[scale=0.75]{${1}}",
+            "    \\caption{${2}}",
+            "    \\label{${3}}",
+            "\\end{figure}%"
+        ],
+        "description": "Insert Figure"
+    },
+
+    "Insert Subfigure": {
+        "prefix": "subfigure",
+        "body": [
+        "\\begin{figure}[H]",
+        "    \\centering",
+        "    \\begin{subfigure}{0.4\\columnwidth}",
+        "        \\centering",
+        "        \\includegraphics[width=\\columnwidth]{${1}}",
+        "        \\caption{${2}}",
+        "        \\label{${3}}",
+        "    \\end{subfigure}",
+        "    \\hspace{5mm}",
+        "    \\begin{subfigure}{0.4\\columnwidth}",
+        "        \\centering",
+        "        \\includegraphics[width=\\columnwidth]{${4}}",
+        "        \\caption{${5}}",
+        "        \\label{${6}}",
+        "    \\end{subfigure}",
+        "    \\caption{${7}}",
+        "    \\label{${8}}",
+        "\\end{figure}%",
+        ""
+        ],
+        "description": ""
+    },
+
+    "Insert Table": {
+        "prefix": "table",
+        "body": [
+        "\\begin{table}[H]",
+        "    \\centering",
+        "    \\caption[]{}",
+        "    \\label{}",
+        "    \\begin{tabular}{${1}}",
+        "        ${2}",
+        "    \\end{tabular}",
+        "\\end{table}%"
+        ],
+        "description": ""
+    },
+
+    "Insert Reference": {
+        "prefix": "reference",
+        "body": [
+            "\\begin{thebibliography}{9}",
+            "    \\bibitem{${1}}",
+            "\\end{thebibliography}"
+        ],
+        "description": "Insert Reference"
+    },
+
+    "beamer templete": {
+      "prefix": "slido",
+      "body": [
+        "\\documentclass[unicode,svgnames]{beamer}",
+        "",
+        "\\hypersetup{",
+        "    colorlinks=true,",
+        "    linkcolor=DeepPink,",
+        "    % filecolor=magenta,      ",
+        "    urlcolor=Magenta,",
+        "    % pdfpagemode=FullScreen,",
+        "    }",
+        "",
+        "%%%%% tikz %%%%%",
+        "\\usepackage{tikz}",
+        "% \\usepackage{tikz-3dplot}",
+        "\\usetikzlibrary{intersections,calc,patterns,through,positioning,arrows,backgrounds,cd,decorations.pathreplacing,decorations.markings}",
+        "",
+        "%%%%% equations %%%%%",
+        "\\usepackage{bm}",
+        "\\usepackage{mathtools}",
+        "\\usepackage{autobreak}",
+        "\\usepackage{siunitx}",
+        "\\usepackage{physics}",
+        "",
+        "%%%%% figures %%%%%",
+        "\\usepackage{subcaption}",
+        "",
+        "%%%%% frameing %%%%%",
+        "\\usepackage{tcolorbox}",
+        "\\tcbuselibrary{skins,theorems,breakable}",
+        "% \\usepackage{enumitem}",
+        "",
+        "%%%%% macros %%%%%",
+        "\\usepackage{mylogics}",
+        "\\usepackage{myalgebra}",
+        "\\usepackage{mygeometry}",
+        "\\usepackage{myQM}",
+        "",
+        "%%%%%%%%%%%%%% beamer setups %%%%%%%%%%%%%%%",
+        "\\usepackage[no-math]{fontspec}",
+        "\\usepackage[deluxe,haranoaji]{luatexja-preset}",
+        "",
+        "\\renewcommand{\\kanjifamilydefault}{\\gtdefault}",
+        "\\renewcommand{\\emph}[1]{{upshape\\bfseries #1}}",
+        "\\usetheme{Darmstadt}",
+        "\\usefonttheme{professionalfonts}",
+        "\\setbeamertemplate{navigation symbols}{}",
+        "\\setbeamertemplate{itemize item}[triangle]",
+        "",
+        "\\def\\languagename{ja}",
+        "\\deftranslation[to=ja]{Theorem}{定理}",
+        "\\deftranslation[to=ja]{Corollary}{系}",
+        "\\deftranslation[to=ja]{Fact}{事実}",
+        "\\deftranslation[to=ja]{Lemma}{補題}",
+        "\\deftranslation[to=ja]{Problem}{問題}",
+        "\\deftranslation[to=ja]{Solution}{解}",
+        "\\deftranslation[to=ja]{Definition}{定義}",
+        "\\deftranslation[to=ja]{Definitions}{定義}",
+        "\\deftranslation[to=ja]{Example}{例}",
+        "\\deftranslation[to=ja]{Examples}{例}",
+        "\\def\\proofname{証明}",
+        "",
+        "%%%%%%%%%%%% miscellaneous setups %%%%%%%%%%%%%",
+        "",
+        "\\mathtoolsset{showonlyrefs=true} % 被参照数式のみ数式番号割り振り",
+        "",
+        "%%%%% breakable proof environment %%%%%",
+        "\\makeatletter",
+        "\\newenvironment<>{myproof}[1][\\proofname]{%",
+        "    \\par",
+        "    \\def\\insertproofname{#1\\@addpunct{.}}%",
+        "    \\usebeamertemplate{proof begin}#2}",
+        "  {\\usebeamertemplate{proof end}}",
+        "\\makeatother",
+        "",
+        "%%%%%%framing%%%%%",
+        "\\newtcolorbox[auto counter,number within=section]{myaxiom}[2][]{%",
+        "colback=red!5!white,colframe=red!75!black,fonttitle=\\bfseries,",
+        "title=公理~\\thetcbcounter: #2,#1}",
+        "",
+        "\\newtcolorbox[auto counter,number within=section]{mytheo}[2][]{%",
+        "colback=blue!5!white,colframe=blue!75!black,fonttitle=\\bfseries,",
+        "title=定理~\\thetcbcounter: #2,#1}",
+        "",
+        "\\newtcolorbox[auto counter,number within=section]{myprop}[2][]{%",
+        "colback=blue!5!white,colframe=blue!75!black,fonttitle=\\bfseries,",
+        "title=命題~\\thetcbcounter: #2,#1}",
+        "",
+        "\\newtcolorbox[auto counter,number within=section]{mylem}[2][]{%",
+        "colback=blue!5!white,colframe=blue!75!black,fonttitle=\\bfseries,",
+        "title=補題~\\thetcbcounter: #2,#1}",
+        "",
+        "\\newtcolorbox[auto counter,number within=section]{mydef}[2][]{%",
+        "colback=green!5!white,colframe=green!75!black,fonttitle=\\bfseries,",
+        "title=定義~\\thetcbcounter: #2,#1}",
+        "",
+        "\\newtcolorbox[use counter from=mytheo]{mycol}[2][]{%",
+        "fonttitle=\\bfseries,enhanced,",
+        "attach boxed title to top left=",
+        "{xshift=-2mm,yshift=-2mm},",
+        "title=系~\\thetcbcounter: #2,#1}",
+        "",
+        "\\newtcolorbox{marker}[1][]{enhanced,",
+        "   before skip=2mm,after skip=3mm,",
+        "   boxrule=0.4pt,left=5mm,right=2mm,top=1mm,bottom=1mm,",
+        "   colback=yellow!50,",
+        "   colframe=yellow!20!black,",
+        "   sharp corners,rounded corners=southeast,arc is angular,arc=3mm,",
+        "   underlay={%",
+        "       \\path[fill=tcbcolback!80!black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);",
+        "       \\path[draw=tcbcolframe,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);",
+        "       \\path[fill=yellow!50!black,draw=none] (interior.south west) rectangle node[white]{\\Huge\\bfseries !} ([xshift=4mm]interior.north west);",
+        "       },",
+        "   drop fuzzy shadow,#1}",
+        "",
+        "\\title{${1}}",
+        "\\author{${2}}",
+        "\\date{\\today}",
+        "",
+        "\\begin{document}",
+        "",
+        "\\begin{frame}",
+        "  \\titlepage",
+        "\\end{frame}",
+        "",
+        "\\section*{目次}",
+        "\\begin{frame}\\frametitle{Contents}",
+        "    \\tableofcontents",
+        "\\end{frame}",
+        "",
+        "",
+        "\\begin{frame}\\frametitle{${3}}",
+        "    ${4}",
+        "\\end{frame}",
+        "",
+        "${0}",
+        "",
+        "\\end{document}"
+      ],
+      "description": "beamer templete"
+    },
+
+      "varLambda": {
+        "prefix": "@vL",
+        "body": [
+          "\\varLambda"
+        ],
+        "description": ""
       },
-  ],
-  "latex-workshop.view.pdf.viewer": "tab",
-  "code-runner.runInTerminal": true,
-  /*"code-runner.languageMap": {
-      "cpp": "/Users/takamatoshinori/vsc_run/cpp.sh"
-  },*/
-  "code-runner.executorMap": {
-      "javascript": "node",
-      "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
-      "c": "cd $dir && gcc -fexec-charset=CP932 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-      "cpp": "cd $dir && clang++ -std=c++20 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-      "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-      "php": "php",
-      "python": "python -u",
-      "perl": "perl",
-      "perl6": "perl6",
-      "ruby": "ruby",
-      "go": "go run",
-      "lua": "lua",
-      "groovy": "groovy",
-      "powershell": "powershell -ExecutionPolicy ByPass -File",
-      "bat": "cmd /c",
-      "shellscript": "bash",
-      "fsharp": "fsi",
-      "csharp": "scriptcs",
-      "vbscript": "cscript //Nologo",
-      "typescript": "ts-node",
-      "coffeescript": "coffee",
-      "scala": "scala",
-      "swift": "swift",
-      "julia": "julia",
-      "crystal": "crystal",
-      "ocaml": "ocaml",
-      "r": "Rscript",
-      "applescript": "osascript",
-      "clojure": "lein exec",
-      "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
-      "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
-      "racket": "racket",
-      "scheme": "csi -script",
-      "ahk": "autohotkey",
-      "autoit": "autoit3",
-      "dart": "dart",
-      "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
-      "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
-      "haskell": "runhaskell",
-      "nim": "nim compile --verbosity:0 --hints:off --run",
-      "lisp": "sbcl --script",
-      "kit": "kitc --run",
-      "v": "v run",
-      "sass": "sass --style expanded",
-      "scss": "scss --style expanded",
-      "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
-      "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-      "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-      "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-      "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
-  },
-  "C_Cpp.default.compilerPath": "",
-  "C_Cpp.files.exclude": {
-  
-      "**/.vscode": true
-  },
-  "latex-workshop.synctex.afterBuild.enabled": true,
-  "latex-workshop.synctex.synctexjs.enabled": false,
-  "terminal.integrated.inheritEnv": false,
-  "C_Cpp.intelliSenseEngineFallback": "enabled",
-  "latex-workshop.hover.preview.mathjax.extensions": [
-      "physics",
-      "mathtools",
-      "boldsymbol"
-  ],
-  "latex-workshop.hover.preview.newcommand.parseTeXFile.enabled": false,
-  "latex-workshop.hover.preview.newcommand.newcommandFile": "/Users/takamatoshinori/Desktop/LaTeX/hover/hover.tex",
-  "[markdown]":  {
-      "editor.wordWrap": "on",
-      "editor.quickSuggestions": {
-          "comments": "on",
-          "strings": "on",
-          "other": "on"
+
+      "varPhi": {
+        "prefix": "@vF",
+        "body": [
+          "\\varPhi"
+        ],
+        "description": ""
       },
-      "editor.snippetSuggestions": "top"
-  },
-  "workbench.colorTheme": "Default Dark+",
-  "git.enableSmartCommit": true,
-  "git.confirmSync": false
+
+      "varPsi": {
+        "prefix": "@vY",
+        "body": [
+          "\\varPsi"
+        ],
+        "description": ""
+      },
+
+      "varSigma": {
+        "prefix": "@vS",
+        "body": [
+          "\\varSigma"
+        ],
+        "description": ""
+      },
+
+      "varTheta": {
+        "prefix": "@vQ",
+        "body": [
+          "\\varTheta"
+        ],
+        "description": ""
+      },
+
+      "varGamma": {
+        "prefix": "@vG",
+        "body": [
+          "\\varGamma"
+        ],
+        "description": ""
+      },
+
+      "varDelta": {
+        "prefix": "@vD",
+        "body": [
+          "\\varDelta"
+        ],
+        "description": ""
+      },
+
+      "varXi": {
+        "prefix": "@vX",
+        "body": [
+          "\\varXi"
+        ],
+        "description": ""
+      },
+
+      "environment": {
+        "prefix": "env",
+        "body": [
+          "\\begin{${1}}${2}",
+          "    ${3}",
+          "\\end{${1}}",
+          "${0}"
+        ],
+        "description": ""
+      },
+
+      "brackets": {
+        "prefix": "lr",
+        "body": [
+          "\\left${1} ${3} \\right${2} ${0}"
+        ],
+        "description": ""
+      },
+
+      "bigbrackets": {
+        "prefix": "blr",
+        "body": [
+          "\\bigl${1} ${3} \\bigr${2} ${0}"
+        ],
+        "description": ""
+      },
+
+      "Bigbrackets": {
+        "prefix": "Bglr",
+        "body": [
+          "\\Bigl${1} ${3} \\Bigr${2} ${0}"
+        ],
+        "description": ""
+      },
+
+      "biggbrackets": {
+        "prefix": "bglr",
+        "body": [
+          "\\biggl${1} ${3} \\biggr${2} ${0}"
+        ],
+        "description": ""
+      },
+	  
+      "Biggbrackets": {
+        "prefix": "Bglr",
+        "body": [
+          "\\Biggl${1} ${3} \\Biggr${2} ${0}"
+        ],
+        "description": ""
+      },
+
+      "set": {
+        "prefix": "@set",
+        "body": [
+          "${1}l\\{\\, ${2} ${1}m| ${3} \\,${1}r\\\\} ${0}"
+        ],
+        "description": ""
+      },
+
+      "lower": {
+        "prefix": "lower",
+        "body": [
+          "${1}_{${2}} ${0}"
+        ],
+        "description": ""
+      },
+
+      "bitem": {
+        "prefix": "bitem",
+        "body": [
+          "\\item[\\textbf{${1}}] ${0}"
+        ],
+        "description": ""
+      },
+
+      "tikzlibrary": {
+        "prefix": "tikzlib",
+        "body": [
+          "\\usetikzlibrary{intersections,calc,patterns,through,positioning,arrows,backgrounds,cd,decorations.pathreplacing,decorations.markings}",
+          "\\tikzset{",
+          "    % style to apply some styles to each segment of a path",
+          "    on each segment/.style={",
+          "        decorate,",
+          "        decoration={",
+          "            show path construction,",
+          "            moveto code={},",
+          "            lineto code={",
+          "                \\path [#1]",
+          "                (\\tikzinputsegmentfirst) -- (\\tikzinputsegmentlast);",
+          "            },",
+          "            curveto code={",
+          "                \\path [#1] (\\tikzinputsegmentfirst)",
+          "                .. controls",
+          "                (\\tikzinputsegmentsupporta) and (\\tikzinputsegmentsupportb)",
+          "                ..",
+          "                (\\tikzinputsegmentlast);",
+          "            },",
+          "            closepath code={",
+          "                \\path [#1]",
+          "                (\\tikzinputsegmentfirst) -- (\\tikzinputsegmentlast);",
+          "            },",
+          "        },",
+          "    },",
+          "    % style to add an arrow in the middle of a path",
+          "    mid arrow/.style={postaction={decorate,decoration={",
+          "            markings,",
+          "            mark=at position .5 with {\\arrow[#1]{stealth}}",
+          "        }}},",
+          "}"
+        ],
+        "description": "tikzlibrary"
+      },
+
+      "framing": {
+        "prefix": "framing",
+        "body": [
+          "",
+          "\\newtcolorbox[auto counter,number within=section]{myaxiom}[2][]{%",
+          "colback=red!5!white,colframe=red!75!black,fonttitle=\\bfseries,",
+          "title=公理~\\thetcbcounter: #2,#1}",
+          "",
+          "\\newtcolorbox[auto counter,number within=section]{mytheo}[2][]{%",
+          "colback=blue!5!white,colframe=blue!75!black,fonttitle=\\bfseries,",
+          "title=定理~\\thetcbcounter: #2,#1}",
+          "",
+          "\\newtcolorbox[auto counter,number within=section]{myprop}[2][]{%",
+          "colback=blue!5!white,colframe=blue!75!black,fonttitle=\\bfseries,",
+          "title=命題~\\thetcbcounter: #2,#1}",
+          "",
+          "\\newtcolorbox[auto counter,number within=section]{mylem}[2][]{%",
+          "colback=blue!5!white,colframe=blue!75!black,fonttitle=\\bfseries,",
+          "title=補題~\\thetcbcounter: #2,#1}",
+          "",
+          "\\newtcolorbox[auto counter,number within=section]{mydef}[2][]{%",
+          "colback=green!5!white,colframe=green!75!black,fonttitle=\\bfseries,",
+          "title=定義~\\thetcbcounter: #2,#1}",
+          "",
+          "\\newtcolorbox[auto counter,number within=section]{myproblem}[2][]{%",
+          "colback=DarkViolet!5!white,colframe=DarkViolet!75!black,fonttitle=\\bfseries,",
+          "title=問題~\\thetcbcounter: #2,#1}",
+          "",
+          "\\newtcolorbox[use counter from=mytheo]{mycol}[2][]{%",
+          "fonttitle=\\bfseries,enhanced,",
+          "attach boxed title to top left=",
+          "{xshift=-2mm,yshift=-2mm},",
+          "title=系~\\thetcbcounter: #2,#1}",
+          ""
+        ],
+        "description": "my framing"
+      },
+
+      "commutative diagram": {
+        "prefix": "cmtd",
+        "body": [
+          "\\begin{tikzcd}[row sep=large, column sep=large]",
+          "    M \\ar[d, \"p\"']\\ar[r, \"f\"] &L \\\\\\",
+          "    M/N \\arrow[ur, red, dashed, \"\\exists!\\bar{f}\"']&",
+          "\\end{tikzcd}"
+        ],
+        "description": "commutative diagram"
+      },
+
+      "math calligraphic": {
+        "prefix": "mc",
+        "body": [
+          "\\mathcal{${1}}"
+        ],
+        "description": "math calligraphic"
+      },
+      "math blackbord bold": {
+        "prefix": "mbb",
+        "body": [
+          "\\mathbb{${1}}"
+        ],
+        "description": "math blackbord bold"
+      },
+      "math script": {
+        "prefix": "ms",
+        "body": [
+          "\\mathscr{${1}}"
+        ],
+        "description": "math script"
+      },
+      "math roman": {
+        "prefix": "mr",
+        "body": [
+          "\\mathrm{${1}}"
+        ],
+        "description": "math roman"
+      },
+      "math fraktur": {
+        "prefix": "mf",
+        "body": [
+          "\\mathfrak{${1}}"
+        ],
+        "description": "math fraktur"
+      },
+      "-infty to infty": {
+        "prefix": "iti",
+        "body": [
+          "\\int_{-\\infty}^\\infty"
+        ],
+        "description": "-infty to infty"
+      },
+      "overline": {
+        "prefix": "ol",
+        "body": [
+          "\\overline{${1}}"
+        ],
+        "description": "overline"
+      },
+      "textcolor": {
+        "prefix": "tc",
+        "body": [
+          "\\textcolor{${1}}{${2}}"
+        ],
+        "description": "textcolor"
+      },
+      "textbf": {
+        "prefix": "tb",
+        "body": [
+          "\\textbf{${1}}"
+        ],
+        "description": "textbf"
+      },
+      "xrightarrow": {
+        "prefix": "xr",
+        "body": [
+          "\\xrightarrow{${1}}"
+        ],
+        "description": "xrightarrow"
+      },
+      "exact sequence": {
+        "prefix": "exa",
+        "body": [
+          "(\\text{exact})"
+        ],
+        "description": "exact sequence"
+      },
+      "bigraded exact couple": {
+        "prefix": "bec",
+        "body": [
+          "\\Bigl( (${1}^{p,\\, q}),\\, (${2}^{p,\\, q}),\\, (${3}^{p,\\, q}),\\, (${4}^{p,\\, q}),\\, (${5}^{p,\\, q}) \\Bigr)"
+        ],
+        "description": "bigraded exact couple"
+      },
+      "bigraded": {
+        "prefix": "bgrade",
+        "body": [
+          "${1}^{p,\\, q}"
+        ],
+        "description": "bigraded"
+      },
+      "tikzcd arrow": {
+        "prefix": "ar",
+        "body": [
+          "\\ar[${1}, \"${2}\", ${3}] ${0}"
+        ],
+        "description": "tikzcd arrow"
+      },
+      "manifold with boundary": {
+        "prefix": "arinashi",
+        "body": [
+          "（境界なし/\\hyperref[def:mani-with-boundary]{あり}）"
+        ],
+        "description": "manifold with boundary"
+      },
+
+      "emphasise": {
+        "prefix": "empha",
+        "body": [
+          "\\textit{\\textbf{${1}}}"
+        ],
+        "description": "emphasise"
+      },
+
+      "textsf and textbf": {
+        "prefix": "textsbf",
+        "body": [
+          "\\textsf{\\textbf{${1}}}"
+        ],
+        "description": "emphasise"
+      },
+
+      "commutative diagram triangle": {
+        "prefix": "tricmtd",
+        "body": [
+          "\\begin{tikzcd}[row sep=large, column sep=large]",
+          "    &${1} \\ar[rr, \"${4}\"]\\ar[dr, \"${5}\"'] & &${2} \\ar[dl, \"${6}\"] \\\\\\",
+          "    & &${3} &",
+          "\\end{tikzcd}"
+        ],
+        "description": "triangle commutative diagram"
+      },
+
+      "right-angled triangle commutative diagram": {
+        "prefix": "rtricmtd",
+        "body": [
+          "\\begin{tikzcd}[row sep=large, column sep=large]",
+          "    &${1} \\ar[d, \"${4}\"']\\ar[r, \"${5}\"] &${2} \\\\\\",
+          "    &${3} \\ar[ur, \"${6}\"'] &",
+          "\\end{tikzcd}"
+        ],
+        "description": "right-angled triangle commutative diagram"
+      },
+
+      "commutative diagram square": {
+        "prefix": "sqcmtd",
+        "body": [
+          "\\begin{tikzcd}[row sep=large, column sep=large]",
+          "    &${1} \\ar[r, \"${5}\"]\\ar[d, \"${6}\"'] &${2} \\ar[d, \"${7}\"] \\\\\\",
+          "    &${3} \\ar[r, \"${8}\"'] &${4}",
+          "\\end{tikzcd}"
+        ],
+        "description": "square commutative diagram square"
+      },
+
+      "auto bibtex": {
+        "prefix": "autoref",
+        "body": [
+          "%参考文献のスタイル（style.bstを参照）",
+          "\\bibliographystyle{${1}}",
+          "%参考文献（reference.bibを参照）",
+          "\\bibliography{${2}}"
+        ],
+        "description": "auto bibtex"
+      },
+
+      "myexample": {
+        "prefix": "myex",
+        "body": [
+          "\\newtcolorbox[auto counter, number within=section]{myexample}[2][]{",
+          "    breakable,",
+          "    empty,",
+          "    outer arc=0pt,",
+          "    arc=0pt,",
+          "    attach boxed title to top left,",
+          "    boxed title style={",
+          "        empty,",
+          "        left=-2mm,",
+          "        right=-2mm",
+          "    },",
+          "    coltitle=black,",
+          "    colframe=black,",
+          "    colback=white,",
+          "    fonttitle=\\bfseries,",
+          "    title=【例~\\thetcbcounter】#2,#1,",
+          "}",
+          "\\newcommand{\\exref}[1]{\\textbf{【例\\ref{#1}】}}",
+          ""
+        ],
+        "description": "myexample"
+      },
+      "bibliography": {
+        "prefix": "bib",
+        "body": [
+          "\\bibliographystyle{${1}}",
+          "\\bibliography{${2}}"
+        ],
+        "description": "bibliography"
+      }
 }
