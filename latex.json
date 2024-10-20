@@ -1295,6 +1295,120 @@
         "(${1},\\, \\otimes,\\, 1,\\, a,\\, l,\\, r,\\, \\lev,\\, \\lcoev,\\, \\rev,\\, \\rcoev)"
       ],
       "description": "tensor category"
-    }
+    },
+
+    "curved trivalent junction": {
+    "prefix": "curvedTJ",
+    "body": [
+      "\\coordinate (a) at (${1});",
+      "    \\coordinate (c) at (${2});",
+      "    \\coordinate (b) at (${3});",
+      "",
+      "    \\path ",
+      "        let",
+      "            \\p1 = (a),",
+      "            \\p2 = (b),",
+      "            \\p3 = (c)",
+      "        in ",
+      "            coordinate (gcenter) at ({(\\x1 + \\x2) / 2}, {(\\y1 + \\y3) / 2});",
+      "",
+      "    \\path",
+      "        let",
+      "            \\p1 = (a),",
+      "            \\p2 = (b),",
+      "            \\p3 = (gcenter)",
+      "        in",
+      "            coordinate (refptA1) at (\\x1, {(\\y1 + \\y3) / 2})",
+      "            coordinate (refptB1) at (\\x2, {(\\y2 + \\y3) / 2})",
+      "            coordinate (refptA2) at ({(\\x1 + \\x3) / 2}, \\y3)",
+      "            coordinate (refptB2) at ({(\\x2 + \\x3) / 2}, \\y3);",
+      "",
+      "    \\node[bullet] at (gcenter) {};",
+      "    \\draw[->-=.5] (a) .. controls (refptA1) and (refptA2) .. (gcenter);",
+      "    \\draw[->-=.5] (b) .. controls (refptB1) and (refptB2) .. (gcenter); % 中間点を制御点に",
+      "    \\draw[->-=.5] (gcenter) -- (c);"
+    ],
+    "description": "curved trivalent junction"
+  },
+
+  "inverse curved trivalent junction": {
+    "prefix": "curvedTJinv",
+    "body": [
+      "\\coordinate (a) at (${1});",
+      "    \\coordinate (c) at (${2});",
+      "    \\coordinate (b) at (${3});",
+      "",
+      "    \\path ",
+      "        let",
+      "            \\p1 = (a),",
+      "            \\p2 = (b),",
+      "            \\p3 = (c)",
+      "        in ",
+      "            coordinate (gcenter) at ({(\\x2 + \\x3) / 2}, {(\\y1 + \\y2) / 2});",
+      "",
+      "    \\path",
+      "        let",
+      "            \\p1 = (b),",
+      "            \\p2 = (c),",
+      "            \\p3 = (gcenter)",
+      "        in",
+      "            coordinate (refptA2) at (\\x1, {(\\y1 + \\y3) / 2})",
+      "            coordinate (refptB2) at (\\x2, {(\\y2 + \\y3) / 2})",
+      "            coordinate (refptA1) at ({(\\x1 + \\x3) / 2}, \\y3)",
+      "            coordinate (refptB1) at ({(\\x2 + \\x3) / 2}, \\y3);",
+      "",
+      "    \\node[bullet] at (gcenter) {};",
+      "    \\draw[->-=.5] (gcenter) .. controls (refptA1) and (refptA2) .. (b);",
+      "    \\draw[->-=.5] (gcenter) .. controls (refptB1) and (refptB2) .. (c); % 中間点を制御点に",
+      "    \\draw[->-=.5] (a) -- (gcenter);"
+    ],
+    "description": "inverse curved trivalent junction"
+  },
+
+  "trivalent junction": {
+    "prefix": "TJ",
+    "body": [
+      "\\coordinate (a) at (${1});",
+      "\\coordinate (c) at (${2});",
+      "\\coordinate (b) at (${3});",
+      "",
+      "\\path ",
+      "    let",
+      "        \\p1 = (a),",
+      "        \\p2 = (b),",
+      "        \\p3 = (c)",
+      "    in ",
+      "        coordinate (gcenter) at ({(\\x1 + \\x2) / 2}, {(\\y1 + \\y3) / 2});",
+      "",
+      "\\node[bullet] at (gcenter) {};",
+      "\\draw[->-=.5] (a) -- (gcenter);",
+      "\\draw[->-=.5] (b) -- (gcenter); % 中間点を制御点に",
+      "\\draw[->-=.5] (gcenter) -- (c);"
+    ],
+    "description": "trivalent junction"
+  },
+
+  "inverse trivalent junction": {
+    "prefix": "TJinv",
+    "body": [
+      "\\coordinate (a) at (${1});",
+      "    \\coordinate (c) at (${2});",
+      "    \\coordinate (b) at (${3});",
+      "",
+      "    \\path ",
+      "        let",
+      "            \\p1 = (a),",
+      "            \\p2 = (b),",
+      "            \\p3 = (c)",
+      "        in ",
+      "            coordinate (gcenter) at ({(\\x2 + \\x3) / 2}, {(\\y1 + \\y2) / 2});",
+      "",
+      "    \\node[circle,fill,inner sep=2pt] at (gcenter) {};",
+      "    \\draw[->-=.5] (gcenter) -- (b);",
+      "    \\draw[->-=.5] (gcenter) -- (c); % 中間点を制御点に",
+      "    \\draw[->-=.5] (a) -- (gcenter);"
+    ],
+    "description": "inverse trivalent junction"
+  }
   
 }
