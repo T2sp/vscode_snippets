@@ -867,9 +867,8 @@
 // ========== tikz ==========
 
     "tikz options": {
-      "prefix": "tikz",
+      "prefix": "tikzoption",
       "body": [
-        "\\usepackage{tikz}",
         "\\usetikzlibrary{",
         "    intersections,",
         "    decorations,",
