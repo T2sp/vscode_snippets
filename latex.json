@@ -1289,5 +1289,13 @@
       ],
       "description": "2-simplex"
     },
+
+    "tensor category": {
+      "prefix": "tensorcat",
+      "body": [
+        "(${1},\\, \\otimes,\\, 1,\\, a,\\, l,\\, r,\\, \\lev,\\, \\lcoev,\\, \\rev,\\, \\rcoev)"
+      ],
+      "description": "tensor category"
+    }
   
 }
