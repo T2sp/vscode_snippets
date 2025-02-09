@@ -906,6 +906,7 @@
         "\\usepackage{tikz-feynman}",
         "\\usepackage{tikz-network}",
         "\\usepackage{tikz-3dplot}",
+        "\\usepackage{spath3}",
         "\\usepackage{pgfplots}",
         "\\usepgfplotslibrary{patchplots}",
         "\\pgfplotsset{compat=1.15}",
@@ -1127,11 +1128,9 @@
     "tikzpicture in align": {
       "prefix": "tikzalign",
       "body": [
-        "\\begin{align}",
-        "    \\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]",
-        "        ${1}",
-        "    \\end{tikzpicture}",
-        "\\end{align}"
+        "\\begin{tikzpicture}[baseline={([yshift=-.5ex]current bounding box.center)}]",
+        "    ${1}",
+        "\\end{tikzpicture}"
       ],
       "description": "tikzpicture in align"
     },
