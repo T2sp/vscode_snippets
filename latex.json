@@ -1486,5 +1486,26 @@
       ".. controls +(${1}) and +(${2}) .."
     ],
     "description": "control"
+  },
+  "pgfmathsetmacro": {
+  "prefix": "tikzvar",
+  "body": [
+    "\\pgfmathsetmacro{${1}}{${2}}"
+  ],
+  "description": "pgfmathsetmacro"
+  },
+  "coordinate calculation": {
+  "prefix": "coordcalc",
+  "body": [
+    "($${1}$)"
+  ],
+  "description": "coordinate calculation"
+  },
+  "coordinate calculation linear": {
+    "prefix": "coordlin",
+    "body": [
+      "($(${1})!${2}!(${3})$)"
+    ],
+    "description": "coordinate calculation"
   }
 }
